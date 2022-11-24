@@ -1,0 +1,66 @@
+import tkinter
+
+#Para un usuario, crea un formulario que pida 
+#nombre, apellido, edad, sexo, correo, contraseña, username, hobbies.
+#Al presionar el botón, almacena los datos en un diccionario, y posteriormente, genera la consulta 
+#para insertar los datos en una tabla de una base de datos.
+
+ventana = tkinter.Tk() #crea la ventana
+ventana.title("Informacion") #Como se llamara la ventana
+
+
+#nombre
+nombre = tkinter.Label(text="Ingrese su Nombre: ") #crea el texto
+cajanombre = tkinter.Entry() #crea la caja de texto
+cajanombre.grid(row=1, column=1) #posicion de la caja de texto
+nombre.grid(row=1, column=0) #posicion del texto #row es la fila
+
+#Apellido
+apellido = tkinter.Label(text="Ingrese su Apellido: ")
+cajaapellido = tkinter.Entry()
+cajaapellido.grid(row=2, column=1)
+apellido.grid(row=2, column=0)
+
+#Edad
+edad = tkinter.Label(text="Ingrese su Edad: ")
+cajaedad = tkinter.Entry()
+cajaedad.grid(row=3, column=1)
+edad.grid(row=3, column=0)
+
+#Correo
+correo = tkinter.Label(text="Ingrese su Correo: ")
+cajacorreo = tkinter.Entry()
+cajacorreo.grid(row=4, column=1)
+correo.grid(row=4, column=0)
+
+#Contraseña
+contrasena = tkinter.Label(text="Ingrese su Contraseña: ")
+cajacontrasena = tkinter.Entry()
+cajacontrasena.grid(row=5, column=1)
+contrasena.grid(row=5, column=0)
+
+#Username
+username = tkinter.Label(text="Ingrese su Nombre de Usuario: ")
+cajausername = tkinter.Entry()
+cajausername.grid(row=6, column=1)
+username.grid(row=6, column=0)
+
+#Hobbies
+hobbies = tkinter.Label(text="Ingrese su Hobbie: ")
+cajahobbies = tkinter.Entry()
+cajahobbies.grid(row=7, column=1)
+hobbies.grid(row=7, column=0)
+
+def guardar(): #funcion para guardar los datos
+    f = open("datos.txt", "w") #crea y abre el archivo
+    f.write("Nombre: " + cajanombre.get() + "\n") #escribe en el archivo
+    f.write("Apellido: " + cajaapellido.get() + "\n")
+    f.write("Edad: " + cajaedad.get() + "\n")
+    f.write("Correo: " + cajacorreo.get() + "\n")
+    f.write("Contrasena: " + cajacontrasena.get() + "\n")
+    f.write("Username: " + cajausername.get() + "\n")
+    f.write("Hobbies: " + cajahobbies.get() + "\n")
+    f.close() #cierra el archivo
+boton= tkinter.Button(ventana, text="Boton", command=guardar) #crea el boton de guardar
+boton.grid(row=8, column=0) #posicion del boton
+ventana.mainloop() #mantiene la ventana abierta
